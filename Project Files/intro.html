@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Energy Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Professional Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-header">
+        <h1>Wind Turbine Energy Prediction Based on Weather Conditions</h1>
+    </div>
+
+    <div class="container intro-container">
+        
+        <div class="left intro-text">
+            <h2>Powering the Future with Renewable Energy</h2>
+            <div class="content-block">
+                <p>
+                    Renewable energy, such as wind and solar energy, plays an increasing role in the supply of energy worldwide. This trend will continue because global energy demand is increasing, and the use of nuclear power and traditional sources of energy such as coal and oil is unsafe and leads to a large amount of CO2 emission.
+                </p>
+                <p>
+                    Wind energy is a key player in the field of renewable energy. In Europe, the capacity of wind energy production has doubled from 2009 to 2010.
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>The Challenge of Prediction</h3>
+                <p>
+                    However, levels of production of wind energy are hard to predict as they rely on potentially unstable weather conditions. Energy suppliers are interested in accurate predictions to avoid overproduction and coordinate traditional power plants.
+                </p>
+            </div>
+
+            <div class="action-wrapper">
+                <a href="/predict">
+                    <button class="btn-primary">WANT TO PREDICT THE ENERGY??</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="right intro-image">
+            <div class="image-card">
+                <img src="{{ url_for('static', filename='wind.jpg') }}" alt="Wind Turbine Illustration">
+                <div class="caption">Sustainable Wind Energy Solutions</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+/* --- RESET & BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9; /* Professional Light Grey */
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- LAYOUT WRAPPERS --- */
+.page-header {
+    background-color: #003366; /* Dark Navy Blue */
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.page-header h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* --- INTRO PAGE SPECIFIC --- */
+.intro-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.intro-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.intro-text h2 {
+    color: #0056b3;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.content-block p {
+    margin-bottom: 15px;
+    color: #555;
+    text-align: justify;
+}
+
+.highlight-box {
+    background-color: #eef4fa;
+    border-left: 4px solid #0056b3;
+    padding: 15px 20px;
+    margin: 20px 0;
+}
+
+.highlight-box h3 {
+    font-size: 1.1rem;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+.highlight-box p {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.intro-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-card {
+    background: white;
+    padding: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.image-card img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+}
+
+/* --- PREDICT PAGE (DASHBOARD) --- */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- CARDS --- */
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header h3 {
+    font-size: 1.25rem;
+    color: #003366;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-highlight {
+    background-color: #e6f4ea; /* Light green tint for prediction */
+    border-bottom: 1px solid #ccebd6;
+}
+
+.header-highlight h3 {
+    color: #1e7e34;
+}
+
+.card-body {
+    padding: 30px;
+    flex: 1;
+}
+
+/* --- FORMS & INPUTS --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+select:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.city-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.instruction {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- BUTTONS --- */
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background-color: #0056b3; /* Corporate Blue */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #004494;
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Neutral Grey for secondary action */
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.action-wrapper {
+    margin-top: 30px;
+}
+
+/* --- WEATHER DATA GRID --- */
+.weather-results {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.weather-results h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.data-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #e9ecef;
+}
+
+.data-item .label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.data-item .value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #003366;
+}
+
+/* --- PREDICTION RESULT --- */
+.result-box {
+    margin-top: 30px;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #c3e6cb;
+}
+
+.result-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.result-value span {
+    font-size: 1rem;
+    font-weight: 500;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Energy Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-header">
+        <h1>Wind Turbine Energy Prediction Based on Weather Conditions</h1>
+    </div>
+
+    <div class="container dashboard-container">
+
+        <!-- LEFT SIDE: WEATHER MODULE -->
+        <div class="card weather-card">
+            <div class="card-header">
+                <h3>📍 Location & Weather Data</h3>
+            </div>
+            
+            <div class="card-body">
+                <div class="input-section">
+                    <p class="instruction">Select a city to analyze current conditions:</p>
+                    <form method="POST" class="city-form">
+                        <div class="form-group">
+                            <select name="city" required>
+                                <option value="" disabled selected>-- Select City --</option>
+                                {% for city in cities %}
+                                    <option value="{{ city }}">{{ city }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-secondary">Check Conditions</button>
+                    </form>
+                </div>
+
+                {% if weather_data %}
+                    <div class="weather-results">
+                        <h4>Live Data: {{ weather_data.city }}</h4>
+                        <div class="data-grid">
+                            <div class="data-item">
+                                <span class="label">Temperature</span>
+                                <span class="value">{{ weather_data.temperature }} °C</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="label">Humidity</span>
+                                <span class="value">{{ weather_data.humidity }} %</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="label">Pressure</span>
+                                <span class="value">{{ weather_data.pressure }} hPa</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="label">Wind Speed</span>
+                                <span class="value">{{ weather_data.wind_speed }} m/s</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: PREDICTION MODULE -->
+        <div class="card prediction-card">
+            <div class="card-header header-highlight">
+                <h3>⚡ Predict Wind Energy</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="POST" class="predict-form">
+                    <div class="form-group">
+                        <label>Theoretical Power (KWh)</label>
+                        <input type="text" name="theoretical_power" placeholder="Enter Theoretical Power" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Wind Speed (m/s)</label>
+                        <input type="text" name="wind_speed" placeholder="Enter Wind Speed" required>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">PREDICT ENERGY</button>
+                </form>
+
+                {% if prediction %}
+                    <div class="result-box">
+                        <p>Predicted Energy Output</p>
+                        <div class="result-value">{{ prediction }} <span>KWh</span></div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
